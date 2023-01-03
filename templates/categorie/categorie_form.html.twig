@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Categorie - PECHE{% endblock %}
+
+{% block content %}
+<div class="address-container">
+
+<h1>Add Categorie</h1>
+    <a href="{{ path('categorie') }}">Back</a>
+    <hr>
+    {{ form_start(form) }}
+    <div class="row">
+    <div class="col-md-12">{{ form_row(form.nom_categorie) }}</div>
+    <button class="btn btn-lg btn-info btn-block mt-3" type="submit">
+    Add
+</button>   
+   
+  
+
+
+    </div>
+    {{ form_end(form) }} 
+</div>
+{% endblock %}

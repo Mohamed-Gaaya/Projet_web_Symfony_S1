@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Our articles - PECHE{% endblock %}
+
+{% block content %}
+
+<div class="row">
+   
+    <div class="col-md-9">
+<h3>Nos articles</h3>
+
+    <div class="row article-container">
+        {% for article in articles %}
+        <div class="col-md-4">
+            <div class="article-item text-center">
+                <a href="{{ path('product',{'libelle':article.getLibelle()}) }}"><img src="/uploads/{{article.getUploadImage()}}" alt="{{article.getLibelle()}}" class="img-fluid"></a>
+                <h5>{{article.getLibelle()}}</h5>
+                <span class="article-subtitle">{{article.getMarque()}}</span>  
+                    <span class="article-price">{{(article.getPrice()/100)|number_format(2, ',', '.')}} €
+                </span>
+            </div>
+        </div>
+        {% endfor %}
+    </div></div>
+</div>
+
+{% endblock %}

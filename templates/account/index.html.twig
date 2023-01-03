@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Account - POSHMARK{% endblock %}
+
+{% block content %}
+<div class="account-container">
+<h1>My Account</h1>
+    Welcome {{app.user.firstname}} to your account .<br/>
+    it is in this space that you will be able to manage all your personal information.
+    <hr>
+        -<a href="{{ path('account_password') }}">Change my password </a><br/>
+        -<a href="{{ path('account_address') }}">manage my addresses </a><br/>
+        -My orders <br/>
+    <hr>
+</div>
+{% endblock %}

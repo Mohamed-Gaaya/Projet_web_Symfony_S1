@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Address - POSHMARK{% endblock %}
+
+{% block content %}
+<div class="address-container">
+<a href="{{ path('account_address_add') }}" class="btn btn-info btn-sm float-right">Add address</a>
+<h1>My Address</h1>
+    it is in this space that you will be able to manage all your personal address.<br/>
+    <a href="{{ path('account') }}">Back</a>
+    <hr>
+     {% if app.user.addresses|length == 0 %}
+    <p class="text-center">you have not yet added an address in your customer account. to add one, please <a href="{{ path('account_address_add') }}">click here</a>.
+    </p>
+    {% else %}
+    <div class="row">
+
+    {% for address in app.user.addresses %}
+    <div class="col-md-4">
+    <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{address.name}}</h5>
+      <p class="card-text">{{address.address}},<br/>
+    {{address.postal}} - {{address.city}} - {{address.country}}</p>
+      <a href="{{ path('account_address_edit',{'id':address.id}) }}" >Edit</a>| <a href="{{ path('account_address_delete',{'id':address.id}) }}" >Delete</a> 
+    </div>
+  </div>
+</div>
+    {% endfor %}
+</div>
+     {% endif %}
+</div>
+{% endblock %}
